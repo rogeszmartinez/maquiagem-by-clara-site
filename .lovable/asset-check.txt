@@ -1,0 +1,5 @@
+Real images uploaded for the Maria Clara landing page:
+- maria-clara-retrato.png.asset.json
+- maria-clara-maquiando.png.asset.json
+- maria-clara-beauty.png.asset.json
+- maria-clara-editorial.jpg.asset.json
