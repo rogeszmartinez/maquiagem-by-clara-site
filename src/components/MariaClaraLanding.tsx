@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowRight, Instagram, MapPin, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Instagram, MapPin, Menu, X } from "lucide-react";
 import portraitAsset from "@/assets/maria-clara-retrato.png.asset.json";
 import applyingAsset from "@/assets/maria-clara-maquiando.png.asset.json";
 import beautyAsset from "@/assets/maria-clara-beauty.png.asset.json";
@@ -61,7 +61,7 @@ export function Header() {
 }
 
 export function VideoIntro() {
-  return <section className="video-intro" aria-label="Clara Galvão — Make & hair"><video className="video-intro-bg" src={heroVideoAsset.url} poster={heroPosterAsset.url} autoPlay muted loop playsInline preload="auto"/><div className="video-intro-overlay"/><img className="video-intro-logo video-intro-logo-desktop" src={logoHorizontalWhite.url} alt="Clara Galvão — Make & hair"/><img className="video-intro-logo video-intro-logo-mobile" src={logoVerticalWhite.url} alt="Clara Galvão — Make & hair"/></section>;
+  return <section className="video-intro" aria-label="Clara Galvão — Make & hair"><video className="video-intro-bg" src={heroVideoAsset.url} poster={heroPosterAsset.url} autoPlay muted loop playsInline preload="auto"/><div className="video-intro-overlay"/><img className="video-intro-logo video-intro-logo-desktop" src={logoHorizontalWhite.url} alt="Clara Galvão — Make & hair"/><img className="video-intro-logo video-intro-logo-mobile" src={logoVerticalWhite.url} alt="Clara Galvão — Make & hair"/><a className="video-intro-scroll" href="#inicio" aria-label="Descer para a próxima seção"><ChevronDown size={18} aria-hidden="true"/></a></section>;
 }
 
 export function Hero() {

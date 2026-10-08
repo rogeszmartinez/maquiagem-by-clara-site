@@ -68,6 +68,9 @@ img { display:block; max-width:100%; }
 .video-intro-logo { position:relative; z-index:2; height:auto; }
 .video-intro-logo-desktop { width:clamp(300px,30vw,460px); }
 .video-intro-logo-mobile { display:none; }
+.video-intro-scroll { position:absolute; z-index:3; bottom:clamp(20px,4vh,42px); left:50%; display:grid; place-items:center; width:46px; height:46px; border:1px solid color-mix(in oklab,var(--ivory) 45%,transparent); border-radius:50%; color:var(--ivory); animation:video-intro-cue 5s ease-in-out infinite; transition:border-color .3s; }
+.video-intro-scroll:hover { border-color:color-mix(in oklab,var(--ivory) 88%,transparent); animation-play-state:paused; opacity:1; }
+@keyframes video-intro-cue { 0%,100%{opacity:.28} 50%{opacity:.9} }
 
 .hero { min-height:100svh; padding:128px clamp(24px,7vw,112px) 55px; display:grid; grid-template-columns:1.05fr .8fr; align-items:center; gap:clamp(36px,7vw,110px); overflow:hidden; }
 .hero-copy { position:relative; z-index:2; padding-top:25px; }
@@ -166,7 +169,7 @@ footer { display:grid; grid-template-columns:1fr auto; gap:55px; padding:70px cl
 
 .reveal { animation:reveal .7s ease both; animation-timeline:view(); animation-range:entry 5% cover 25%; }
 @keyframes reveal { from{opacity:.25; transform:translateY(22px)} to{opacity:1; transform:none} }
-@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto}.reveal{animation:none}.gallery img{transition:none} }
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto}.reveal{animation:none}.gallery img{transition:none}.video-intro-scroll{animation:none;opacity:.7} }
 
 @media (max-width:900px){
  .site-header { height:78px; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); padding:0 18px; transform:none; }
@@ -215,6 +218,7 @@ footer { display:grid; grid-template-columns:1fr auto; gap:55px; padding:70px cl
  .video-intro { min-height:480px; }
  .video-intro-logo-desktop { display:none; }
  .video-intro-logo-mobile { display:block; width:min(72vw,330px); }
+ .video-intro-scroll { width:42px; height:42px; bottom:22px; }
 }
 @media (max-width:520px){
  .wordmark span { font-size:23px; }
