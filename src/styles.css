@@ -207,6 +207,9 @@ footer { display:grid; grid-template-columns:1fr auto; gap:55px; padding:70px cl
  .final-cta>div { width:100%; flex-direction:column; }
  footer { grid-template-columns:1fr; gap:30px; }
  .footer-copy { grid-column:auto; }
+ .video-intro { min-height:480px; }
+ .video-intro-logo-desktop { display:none; }
+ .video-intro-logo-mobile { display:block; width:min(72vw,330px); }
 }
 @media (max-width:520px){
  .wordmark span { font-size:23px; }
