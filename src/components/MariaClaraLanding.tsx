@@ -4,6 +4,8 @@ import portraitAsset from "@/assets/maria-clara-retrato.png.asset.json";
 import applyingAsset from "@/assets/maria-clara-maquiando.png.asset.json";
 import beautyAsset from "@/assets/maria-clara-beauty.png.asset.json";
 import editorialAsset from "@/assets/maria-clara-editorial.jpg.asset.json";
+import logoAsset from "@/assets/clara-galvao-logo.png.asset.json";
+import logoLightAsset from "@/assets/clara-galvao-logo-light.png.asset.json";
 
 const SITE_CONFIG = {
   whatsappNumber: "",
@@ -38,11 +40,11 @@ function SectionHeading({ eyebrow, title, intro }: { eyebrow?: string; title: st
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  return <header className="site-header"><a className="wordmark" href="#inicio" aria-label="Maria Clara Galvão — início"><span>Maria Clara</span><small>Makeup Artist</small></a><nav className="desktop-nav" aria-label="Navegação principal">{navItems.map(([label,id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><WhatsAppLink className="header-cta">Agendar</WhatsAppLink><button className="menu-button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>{open && <nav className="mobile-nav" aria-label="Navegação móvel">{navItems.map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<WhatsAppLink>Agendar atendimento</WhatsAppLink></nav>}</header>;
+  return <header className="site-header"><a className="wordmark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo" src={logoAsset.url} alt="Clara Galvão — Make & hair"/></a><nav className="desktop-nav" aria-label="Navegação principal">{navItems.map(([label,id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><WhatsAppLink className="header-cta">Agendar</WhatsAppLink><button className="menu-button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>{open && <nav className="mobile-nav" aria-label="Navegação móvel">{navItems.map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<WhatsAppLink>Agendar atendimento</WhatsAppLink></nav>}</header>;
 }
 
 export function Hero() {
-  return <section id="inicio" className="hero"><div className="hero-copy"><p className="eyebrow">Maquiagem profissional <i/> Lauro de Freitas</p><h1>Sua beleza,<br/><em>valorizada</em> em<br/>cada detalhe.</h1><p className="hero-lead">Maquiagem personalizada, com qualidade, longa duração e uma experiência pensada para você se sentir segura em momentos especiais.</p><div className="hero-actions"><WhatsAppLink>Agendar atendimento</WhatsAppLink><a className="button-secondary" href="#servicos">Ver serviços</a></div><p className="location-line"><MapPin size={15}/> Studio em Buraquinho, Lauro de Freitas <span>•</span> Atendimento a domicílio</p></div><div className="hero-visual"><div className="hero-number">01</div><img src={portraitAsset.url} alt="Maria Clara Galvão, maquiadora profissional em Lauro de Freitas" fetchPriority="high"/><p>Beleza autoral<br/>para momentos únicos.</p></div></section>;
+  return <section id="inicio" className="hero"><div className="hero-copy"><p className="eyebrow">Maquiagem profissional <i/> Lauro de Freitas e Salvador</p><h1>Sua beleza,<br/><em>valorizada</em> em<br/>cada detalhe.</h1><p className="hero-lead">Maquiagem personalizada, com alta qualidade e longa duração. Uma experiência pensada para você se sentir segura em momentos especiais.</p><div className="hero-actions"><WhatsAppLink>Agendar atendimento</WhatsAppLink><a className="button-secondary" href="#servicos">Ver serviços</a></div><p className="location-line"><MapPin size={15}/> Studio em Buraquinho, Lauro de Freitas <span>•</span> Atendimento a domicílio</p></div><div className="hero-visual"><div className="hero-number">01</div><img src={portraitAsset.url} alt="Maria Clara Galvão, maquiadora profissional em Lauro de Freitas" fetchPriority="high"/><p>Beleza autoral<br/>para momentos únicos.</p></div></section>;
 }
 
 function Experience() {
@@ -56,7 +58,7 @@ const services = [
 ];
 
 export function ServiceCard({ service }: { service: typeof services[number] }) {
- return <article className={`service-card reveal ${service.featured ? "featured" : ""}`}><div className="service-index">{service.n}</div><div><h3>{service.title}</h3><p>{service.text}</p>{service.featured && <ul><li>Pagamento via PIX ou cartão</li><li>5% OFF para reservas acima de 3 pessoas</li></ul>}</div><div className="service-price"><strong>{service.price}</strong><span>{service.note}</span></div></article>
+ return <article className={`service-card reveal ${service.featured ? "featured" : ""}`}><div className="service-index">{service.n}</div><div><h3>{service.title}</h3><p>{service.text}</p>{service.featured && <ul><li>Pagamento via PIX ou cartão</li></ul>}</div><div className="service-price"><strong>{service.price}</strong><span>{service.note}</span></div></article>
 }
 
 function Services() {
@@ -68,7 +70,7 @@ function Services() {
 }
 
 function Extras() {
- const rows = [["Camuflagem de sobrancelhas com micropigmentação","R$ 50,00"],["Camuflagem de tatuagem — pequena","R$ 60,00"],["Camuflagem de tatuagem — média","R$ 80,00"],["Camuflagem de tatuagem — grande","R$ 120,00"],["Camuflagem de cicatriz — pequena","R$ 30,00"],["Camuflagem de cicatriz — média","R$ 50,00"],["Camuflagem de cicatriz — grande","R$ 70,00"],["Camuflagem de hematomas/manchas pós-cirúrgicas","Valor conforme o tamanho"]];
+ const rows = [["Camuflagem de sobrancelhas com micropigmentação","R$ 50,00"],["Camuflagem de cicatriz — pequena","R$ 30,00"],["Camuflagem de cicatriz — média","R$ 50,00"],["Camuflagem de cicatriz — grande","R$ 70,00"],["Camuflagem de hematomas/manchas pós-cirúrgicas","Valor conforme o tamanho"]];
  return <section className="extras section-pad"><SectionHeading eyebrow="Complementos" title="Extras" intro="Recursos de acabamento para necessidades específicas, realizados com cuidado e precisão."/><div className="price-table reveal">{rows.map(([name,price])=><div key={name}><span>{name}</span><strong>{price}</strong></div>)}</div></section>
 }
 
@@ -80,7 +82,7 @@ export function PortfolioGallery() {
 }
 
 export function AboutSection() {
- return <section id="sobre" className="about section-pad"><div className="about-image reveal"><img src={editorialAsset.url} alt="Maria Clara Galvão com pincel e maquiagem" loading="lazy"/><span>5 anos de experiência</span></div><div className="about-copy reveal"><p className="eyebrow">Sobre Clara</p><h2>Técnica, cuidado<br/>e <em>presença.</em></h2><p>Maria Clara Galvão atua profissionalmente na área da beleza há cerca de 5 anos, oferecendo uma experiência de atendimento personalizada, com foco em qualidade, excelência e cuidado em cada detalhe.</p><p>Seu trabalho é voltado para mulheres que desejam uma maquiagem personalizada e de qualidade, especialmente para momentos importantes e eventos especiais.</p><p>Além dos atendimentos no studio, Clara também realiza produções a domicílio e trabalha com equipe para atender grupos e eventos maiores.</p></div></section>
+ return <section id="sobre" className="about section-pad"><div className="about-image reveal"><img src={editorialAsset.url} alt="Maria Clara Galvão com pincel e maquiagem" loading="lazy"/><span>5 anos de experiência</span></div><div className="about-copy reveal"><p className="eyebrow">Sobre Clara</p><h2>Técnica, cuidado<br/>e <em>presença.</em></h2><p>Maria Clara Galvão atua profissionalmente na área da beleza há cerca de 5 anos, oferecendo um atendimento personalizado, com foco em qualidade, excelência e cuidado em cada detalhe.</p><p>Seu trabalho é voltado para mulheres que desejam uma maquiagem personalizada e de qualidade, especialmente para momentos importantes e eventos especiais.</p><p>Além dos atendimentos no studio, Clara também realiza produções a domicílio e trabalha com equipe para atender grupos e eventos maiores.</p></div></section>
 }
 
 function WhyClara() {
@@ -102,7 +104,7 @@ export function CTASection() {
 }
 
 export function Footer() {
- return <footer><div><a className="wordmark footer-mark" href="#inicio"><span>Maria Clara</span><small>Maquiagem Profissional</small></a><p>Studio — Buraquinho, Lauro de Freitas • Bahia</p></div><div className="footer-links"><a href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer">{SITE_CONFIG.instagramHandle}</a><a href={whatsappHref("Olá, Clara! Gostaria de agendar um atendimento.")}>Agendamento</a></div><p>© 2026 Maria Clara Galvão. Todos os direitos reservados.</p></footer>
+ return <footer><div><a className="wordmark footer-mark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo brand-logo-light" src={logoLightAsset.url} alt="Clara Galvão — Make & hair"/></a><p>Studio — Buraquinho, Lauro de Freitas • Bahia</p></div><div className="footer-links"><a href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer">{SITE_CONFIG.instagramHandle}</a><a href={whatsappHref("Olá, Clara! Gostaria de agendar um atendimento.")}>Agendamento</a></div><p>© 2026 Maria Clara Galvão. Todos os direitos reservados.</p></footer>
 }
 
 export default function MariaClaraLanding(){ return <><Header/><main><Hero/><Experience/><Services/><Extras/><PortfolioGallery/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
