@@ -177,6 +177,7 @@ footer>p { grid-column:1/-1; margin:15px 0 0; padding-top:25px; border-top:1px s
  .hero h1 { font-size:clamp(55px,16vw,78px); }
  .hero-lead { margin:28px 0; }
  .hero-visual { order:-1; margin-top:0; height:min(58vh,430px); min-height:340px; }
+ .hero-number { top:14px; right:14px; font-size:38px; }
  .hero-visual:before { inset:5% -24px -20px 16%; }
  .location-line { flex-wrap:wrap; line-height:1.4; }
  .section-pad { padding:80px 24px; }
