@@ -23,6 +23,10 @@ const navItems = [
   ["Sobre", "sobre"], ["Localização", "localizacao"], ["Contato", "contato"],
 ] as const;
 
+const desktopNavItems = [
+  ["Serviços", "servicos"], ["Portfólio", "portfolio"], ["Sobre", "sobre"],
+] as const;
+
 const images = [
   { src: portraitAsset.url, alt: "Maria Clara Galvão com maquiagem profissional e cabelos cacheados", className: "gallery-tall" },
   { src: applyingAsset.url, alt: "Maria Clara segurando pincel e paleta de maquiagem", className: "gallery-standard" },
@@ -46,7 +50,14 @@ function SectionHeading({ eyebrow, title, intro }: { eyebrow?: string; title: st
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  return <header className="site-header"><a className="wordmark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo" src={logoAsset.url} alt="Clara Galvão — Make & hair"/></a><nav className="desktop-nav" aria-label="Navegação principal">{navItems.map(([label,id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><WhatsAppLink className="header-cta">Agendar</WhatsAppLink><button className="menu-button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>{open && <nav className="mobile-nav" aria-label="Navegação móvel">{navItems.map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<WhatsAppLink>Agendar atendimento</WhatsAppLink></nav>}</header>;
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return <header className={`site-header${scrolled ? " scrolled" : ""}`}><a className="wordmark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo" src={logoAsset.url} alt="Clara Galvão — Make & hair"/></a><nav className="desktop-nav" aria-label="Navegação principal">{desktopNavItems.map(([label,id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><div className="header-actions"><a className="header-icon" href="#localizacao" aria-label="Localização"><MapPin size={17}/></a><a className="header-icon" href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram de Clara Galvão"><Instagram size={17}/></a><WhatsAppLink className="header-cta">Agendar</WhatsAppLink></div><button className="menu-button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>{open && <nav className="mobile-nav" aria-label="Navegação móvel">{navItems.map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<WhatsAppLink>Agendar atendimento</WhatsAppLink></nav>}</header>;
 }
 
 export function VideoIntro() {
