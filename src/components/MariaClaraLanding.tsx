@@ -116,4 +116,4 @@ export function Footer() {
  return <footer><a className="wordmark footer-mark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo brand-logo-light" src={logoLightAsset.url} alt="Clara Galvão — Make & hair"/></a><div className="footer-links"><a href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer">{SITE_CONFIG.instagramHandle}</a><a href={whatsappHref("Olá, Clara! Gostaria de agendar um atendimento.")}>Agendamento</a></div><p className="footer-address">Studio — Buraquinho, Lauro de Freitas • Bahia</p><p className="footer-copy">© 2026 Maria Clara Galvão. Todos os direitos reservados.</p></footer>
 }
 
-export default function MariaClaraLanding(){ return <><Header/><main><Hero/><Experience/><Services/><Extras/><PortfolioGallery/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
+export default function MariaClaraLanding(){ return <><Header/><main><VideoIntro/><Hero/><Experience/><Services/><Extras/><PortfolioGallery/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
