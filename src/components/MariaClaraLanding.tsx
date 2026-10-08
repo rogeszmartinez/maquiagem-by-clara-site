@@ -49,7 +49,7 @@ export function Header() {
 }
 
 export function VideoIntro() {
-  return <section className="video-intro" aria-label="Clara Galvão — Make & hair"><video className="video-intro-bg" src={heroVideoAsset.url} autoPlay muted loop playsInline preload="auto"/><div className="video-intro-overlay"/><img className="video-intro-logo" src={logoHorizontalWhite.url} alt="Clara Galvão — Make & hair"/></section>;
+  return <section className="video-intro" aria-label="Clara Galvão — Make & hair"><video className="video-intro-bg" src={heroVideoAsset.url} autoPlay muted loop playsInline preload="auto"/><div className="video-intro-overlay"/><img className="video-intro-logo video-intro-logo-desktop" src={logoHorizontalWhite.url} alt="Clara Galvão — Make & hair"/><img className="video-intro-logo video-intro-logo-mobile" src={logoVerticalWhite.url} alt="Clara Galvão — Make & hair"/></section>;
 }
 
 export function Hero() {
