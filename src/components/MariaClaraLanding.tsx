@@ -9,6 +9,7 @@ import logoLightAsset from "@/assets/clara-galvao-logo-light.png.asset.json";
 import heroVideoAsset from "@/assets/clara-galvao-hero.mp4.asset.json";
 import logoHorizontalWhite from "@/assets/clara-galvao-horizontal-white.png.asset.json";
 import logoVerticalWhite from "@/assets/clara-galvao-vertical-white.png.asset.json";
+import heroPosterAsset from "@/assets/clara-galvao-hero-poster.jpg.asset.json";
 
 const SITE_CONFIG = {
   whatsappNumber: "",
