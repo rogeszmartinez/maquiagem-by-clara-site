@@ -6,6 +6,10 @@ import beautyAsset from "@/assets/maria-clara-beauty.png.asset.json";
 import editorialAsset from "@/assets/maria-clara-editorial.jpg.asset.json";
 import logoAsset from "@/assets/clara-galvao-logo.png.asset.json";
 import logoLightAsset from "@/assets/clara-galvao-logo-light.png.asset.json";
+import heroVideoAsset from "@/assets/clara-galvao-hero.mp4.asset.json";
+import logoHorizontalWhite from "@/assets/clara-galvao-horizontal-white.png.asset.json";
+import logoVerticalWhite from "@/assets/clara-galvao-vertical-white.png.asset.json";
+import heroPosterAsset from "@/assets/clara-galvao-hero-poster.jpg.asset.json";
 
 const SITE_CONFIG = {
   whatsappNumber: "",
@@ -43,6 +47,10 @@ function SectionHeading({ eyebrow, title, intro }: { eyebrow?: string; title: st
 export function Header() {
   const [open, setOpen] = useState(false);
   return <header className="site-header"><a className="wordmark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo" src={logoAsset.url} alt="Clara Galvão — Make & hair"/></a><nav className="desktop-nav" aria-label="Navegação principal">{navItems.map(([label,id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><WhatsAppLink className="header-cta">Agendar</WhatsAppLink><button className="menu-button" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>{open && <nav className="mobile-nav" aria-label="Navegação móvel">{navItems.map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<WhatsAppLink>Agendar atendimento</WhatsAppLink></nav>}</header>;
+}
+
+export function VideoIntro() {
+  return <section className="video-intro" aria-label="Clara Galvão — Make & hair"><video className="video-intro-bg" src={heroVideoAsset.url} poster={heroPosterAsset.url} autoPlay muted loop playsInline preload="auto"/><div className="video-intro-overlay"/><img className="video-intro-logo video-intro-logo-desktop" src={logoHorizontalWhite.url} alt="Clara Galvão — Make & hair"/><img className="video-intro-logo video-intro-logo-mobile" src={logoVerticalWhite.url} alt="Clara Galvão — Make & hair"/></section>;
 }
 
 export function Hero() {
@@ -109,4 +117,4 @@ export function Footer() {
  return <footer><a className="wordmark footer-mark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo brand-logo-light" src={logoLightAsset.url} alt="Clara Galvão — Make & hair"/></a><div className="footer-links"><a href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer">{SITE_CONFIG.instagramHandle}</a><a href={whatsappHref("Olá, Clara! Gostaria de agendar um atendimento.")}>Agendamento</a></div><p className="footer-address">Studio — Buraquinho, Lauro de Freitas • Bahia</p><p className="footer-copy">© 2026 Maria Clara Galvão. Todos os direitos reservados.</p></footer>
 }
 
-export default function MariaClaraLanding(){ return <><Header/><main><Hero/><Experience/><Services/><Extras/><PortfolioGallery/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
+export default function MariaClaraLanding(){ return <><Header/><main><VideoIntro/><Hero/><Experience/><Services/><Extras/><PortfolioGallery/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
