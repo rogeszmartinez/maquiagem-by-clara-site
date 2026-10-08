@@ -9,6 +9,7 @@ import logoLightAsset from "@/assets/clara-galvao-logo-light.png.asset.json";
 
 const SITE_CONFIG = {
   whatsappNumber: "",
+  whatsappUrl: "https://wa.me/message/JATFFJCIQ7YCF1",
   instagramHandle: "@maquiagembyclara",
   instagramUrl: "https://www.instagram.com/maquiagembyclara/",
 };
@@ -27,7 +28,8 @@ const images = [
 
 function whatsappHref(message: string) {
   const digits = SITE_CONFIG.whatsappNumber.replace(/\D/g, "");
-  return digits ? `https://wa.me/${digits}?text=${encodeURIComponent(message)}` : "#contato";
+  if (digits) return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
+  return SITE_CONFIG.whatsappUrl || "#contato";
 }
 
 function WhatsAppLink({ children, className = "button-primary" }: { children: ReactNode; className?: string }) {
