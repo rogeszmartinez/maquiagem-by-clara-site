@@ -159,7 +159,7 @@ footer { display:grid; grid-template-columns:1fr auto; gap:55px; padding:70px cl
 
 @media (max-width:900px){
  .site-header { height:78px; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); padding:0 18px; }
- .wordmark { grid-column:2; justify-self:center; }
+ .site-header .wordmark { grid-column:2; justify-self:center; }
  .brand-logo { height:44px; }
  .desktop-nav,.header-cta { display:none; }
  .menu-button { grid-column:3; justify-self:end; display:grid; place-items:center; width:44px; height:44px; border:0; background:transparent; color:var(--foreground); }
