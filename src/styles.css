@@ -41,6 +41,7 @@ img { display:block; max-width:100%; }
 .wordmark { display:flex; flex-direction:column; width:max-content; line-height:1; }
 .wordmark span { font:600 27px/1 var(--font-display); }
 .wordmark small { margin-top:5px; font-size:8px; text-transform:uppercase; letter-spacing:.24em; }
+.brand-logo { display:block; height:36px; width:auto; }
 .desktop-nav { display:flex; gap:30px; font-size:11px; text-transform:uppercase; letter-spacing:.11em; }
 .desktop-nav a { position:relative; }
 .desktop-nav a:after { content:""; position:absolute; left:0; right:100%; bottom:-6px; height:1px; background:var(--gold); transition:right .25s; }
@@ -154,7 +155,7 @@ img { display:block; max-width:100%; }
 .button-light { border-color:color-mix(in oklab,var(--primary-foreground) 45%,transparent); color:var(--primary-foreground); }
 .button-light:hover { background:var(--primary-foreground); color:var(--primary); }
 footer { display:grid; grid-template-columns:1fr auto; gap:55px; padding:70px clamp(24px,7vw,112px) 35px; background:var(--primary); color:var(--primary-foreground); border-top:1px solid color-mix(in oklab,var(--primary-foreground) 15%,transparent); }
-.footer-mark span { font-size:35px; }
+.footer-mark .brand-logo { height:44px; }
 footer>div>p { color:color-mix(in oklab,var(--primary-foreground) 60%,transparent); }
 .footer-links { display:flex; gap:40px; align-items:start; font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
 footer>p { grid-column:1/-1; margin:15px 0 0; padding-top:25px; border-top:1px solid color-mix(in oklab,var(--primary-foreground) 15%,transparent); color:color-mix(in oklab,var(--primary-foreground) 45%,transparent); font-size:10px; }
@@ -165,6 +166,7 @@ footer>p { grid-column:1/-1; margin:15px 0 0; padding-top:25px; border-top:1px s
 
 @media (max-width:900px){
  .site-header { height:68px; grid-template-columns:1fr auto; padding:0 20px; }
+ .brand-logo { height:30px; }
  .desktop-nav,.header-cta { display:none; }
  .menu-button { display:grid; place-items:center; width:44px; height:44px; border:0; background:transparent; color:var(--foreground); }
  .mobile-nav { display:flex; position:absolute; top:68px; left:0; right:0; flex-direction:column; padding:25px 24px 32px; background:var(--ivory); border-bottom:1px solid var(--border); box-shadow:0 15px 35px color-mix(in oklab,var(--foreground) 10%,transparent); }
@@ -208,6 +210,7 @@ footer>p { grid-column:1/-1; margin:15px 0 0; padding-top:25px; border-top:1px s
 }
 @media (max-width:520px){
  .wordmark span { font-size:23px; }
+ .brand-logo { height:26px; }
  .hero-actions { flex-direction:column; }
  .button-primary,.button-secondary,.button-light { width:100%; }
  .hero-visual { height:64vh; min-height:470px; }
