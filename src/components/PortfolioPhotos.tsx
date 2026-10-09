@@ -13,12 +13,12 @@ import photo08 from "@/assets/portfolio-08.jpg.asset.json";
 import photo09 from "@/assets/portfolio-09.jpg.asset.json";
 
 const photos = [
+  { src: photo04.url, alt: "Maquiagem iluminada e cabelos cacheados soltos, produção com vestido amarelo", width: 1080, height: 1920 },
+  { src: photo06.url, alt: "Maquiagem com olhos marcados e cabelos cacheados, retrato com roupa preta", width: 1440, height: 1920 },
+  { src: photo05.url, alt: "Maquiagem com sombra cintilante e cabelos ondulados, produção com vestido vinho", width: 1080, height: 1920 },
   { src: photo01.url, alt: "Maquiagem com olhos esfumados e cabelo preso, produção com vestido amarelo", width: 1413, height: 1920 },
   { src: photo02.url, alt: "Maquiagem com delineado e coque com mechas soltas, produção com vestido vermelho", width: 1344, height: 1920 },
   { src: photo03.url, alt: "Penteado em coque baixo com acabamento polido, visto de lado", width: 1440, height: 1920 },
-  { src: photo04.url, alt: "Maquiagem iluminada e cabelos cacheados soltos, produção com vestido amarelo", width: 1080, height: 1920 },
-  { src: photo05.url, alt: "Maquiagem com sombra cintilante e cabelos ondulados, produção com vestido vinho", width: 1080, height: 1920 },
-  { src: photo06.url, alt: "Maquiagem com olhos marcados e cabelos cacheados, retrato com roupa preta", width: 1440, height: 1920 },
   { src: photo07.url, alt: "Maquiagem social iluminada com cabelo preso e brincos de pérola", width: 1280, height: 1920 },
   { src: photo08.url, alt: "Penteado semipreso com ondas longas, visto de costas", width: 1080, height: 1920 },
   { src: photo09.url, alt: "Rabo de cavalo alto com ondas e mechas trabalhadas, visto de costas", width: 1000, height: 1778 },
