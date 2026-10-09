@@ -118,11 +118,14 @@ img { display:block; max-width:100%; }
 .price-table { border-top:1px solid color-mix(in oklab,var(--foreground) 25%,transparent); }
 .price-table div { display:flex; justify-content:space-between; gap:30px; padding:20px 0; border-bottom:1px solid color-mix(in oklab,var(--foreground) 18%,transparent); }
 .price-table strong { font-family:var(--font-display); font-size:20px; white-space:nowrap; }
-.portfolio { padding-bottom:130px; }
+.portfolio { padding-bottom:130px; background:var(--primary); color:var(--primary-foreground); }
+.portfolio .section-heading>p { color:color-mix(in oklab,var(--primary-foreground) 80%,transparent); }
+.portfolio .instagram-link { border-block-color:color-mix(in oklab,var(--primary-foreground) 30%,transparent); }
+.portfolio .instagram-link small { color:color-mix(in oklab,var(--primary-foreground) 72%,transparent); }
 .portfolio-window { overflow:hidden; margin-inline:calc(-1 * clamp(24px,7vw,112px)); }
 .portfolio-track { display:flex; width:max-content; animation:portfolio-drift 140s linear infinite; }
 .portfolio-strip { display:flex; flex:none; gap:18px; padding-right:18px; }
-.portfolio-photo { position:relative; flex:none; width:auto; height:480px; padding:0; border:0; border-radius:0; overflow:hidden; cursor:zoom-in; background:var(--muted); }
+.portfolio-photo { position:relative; flex:none; width:auto; height:480px; padding:0; border:0; border-radius:0; overflow:hidden; cursor:zoom-in; background:color-mix(in oklab,var(--foreground) 40%,transparent); }
 .portfolio-photo img { width:auto; max-width:none; height:100%; object-fit:contain; transition:transform .5s ease; }
 .portfolio-photo:hover img { transform:scale(1.025); }
 .portfolio-photo:focus-visible { outline:2px solid var(--gold); outline-offset:-4px; }
