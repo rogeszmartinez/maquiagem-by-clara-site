@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ArrowRight, ChevronDown, Instagram, MapPin, Menu, X } from "lucide-react";
 import portraitAsset from "@/assets/maria-clara-retrato.png.asset.json";
 import applyingAsset from "@/assets/maria-clara-maquiando.png.asset.json";
-import beautyAsset from "@/assets/maria-clara-beauty.png.asset.json";
+import { PortfolioPhotos } from "@/components/PortfolioPhotos";
 import editorialAsset from "@/assets/maria-clara-editorial.jpg.asset.json";
 import logoAsset from "@/assets/clara-galvao-logo.png.asset.json";
 import logoLightAsset from "@/assets/clara-galvao-logo-light.png.asset.json";
@@ -26,13 +26,6 @@ const navItems = [
 const desktopNavItems = [
   ["Serviços", "servicos"], ["Portfólio", "portfolio"], ["Sobre", "sobre"],
 ] as const;
-
-const images = [
-  { src: portraitAsset.url, alt: "Maria Clara Galvão com maquiagem profissional e cabelos cacheados", className: "gallery-tall" },
-  { src: applyingAsset.url, alt: "Maria Clara segurando pincel e paleta de maquiagem", className: "gallery-standard" },
-  { src: beautyAsset.url, alt: "Retrato beauty de Maria Clara com maquiagem sofisticada", className: "gallery-standard" },
-  { src: editorialAsset.url, alt: "Maria Clara em retrato editorial com pincel de maquiagem", className: "gallery-wide" },
-];
 
 function whatsappHref(message: string) {
   const digits = SITE_CONFIG.whatsappNumber.replace(/\D/g, "");
@@ -96,10 +89,7 @@ function Extras() {
 }
 
 export function PortfolioGallery() {
- const [active,setActive]=useState<number|null>(null);
- const activeImage = active === null ? undefined : images[active];
- useEffect(()=>{if(active===null)return; const close=(e:KeyboardEvent)=>e.key==="Escape"&&setActive(null); document.addEventListener("keydown",close); return()=>document.removeEventListener("keydown",close)},[active]);
- return <section id="portfolio" className="portfolio section-pad"><SectionHeading eyebrow="Portfólio" title="Beleza que se revela nos detalhes." intro="Conheça algumas das produções realizadas por Clara."/><div className="gallery">{images.map((img,i)=><button key={img.src} className={img.className} onClick={()=>setActive(i)} aria-label={`Ampliar: ${img.alt}`}><img src={img.src} alt={img.alt} loading={i>0?"lazy":"eager"}/></button>)}</div><a className="instagram-link" href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer"><Instagram size={18}/><span>Ver Instagram</span><small>{SITE_CONFIG.instagramHandle}</small><ArrowRight size={18}/></a>{activeImage&&<div className="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={()=>setActive(null)}><button aria-label="Fechar imagem"><X/></button><img src={activeImage.src} alt={activeImage.alt}/></div>}</section>
+ return <section id="portfolio" className="portfolio section-pad"><SectionHeading eyebrow="Portfólio" title="Beleza que se revela nos detalhes." intro="Conheça algumas das produções realizadas por Clara."/><PortfolioPhotos/><a className="instagram-link" href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer"><Instagram size={18}/><span>Ver Instagram</span><small>{SITE_CONFIG.instagramHandle}</small><ArrowRight size={18}/></a></section>
 }
 
 export function AboutSection() {
