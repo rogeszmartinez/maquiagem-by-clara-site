@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep portfolio photo assets and presentation in a dedicated browser-safe component, using a duplicated CSS track on desktop and a single static column on mobile; this keeps continuous motion separate from the page content and avoids mobile duplication.
+- Use Radix Dialog with design-system buttons for portfolio enlargement; this provides focus trapping, Escape dismissal, and scroll locking.
