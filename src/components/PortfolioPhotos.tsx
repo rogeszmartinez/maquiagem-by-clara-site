@@ -28,8 +28,20 @@ export function PortfolioPhotos() {
   const [active, setActive] = useState<number | null>(null);
   const selected = active === null ? undefined : photos[active];
 
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLElement;
+    if (target.closest(".portfolio-photo")) {
+      event.currentTarget.classList.remove("is-fast");
+      return;
+    }
+    const rect = event.currentTarget.getBoundingClientRect();
+    const edge = Math.min(rect.width * 0.18, 180);
+    const x = event.clientX - rect.left;
+    event.currentTarget.classList.toggle("is-fast", x < edge || x > rect.width - edge);
+  };
+
   return <Dialog.Root open={selected !== undefined} onOpenChange={(open) => { if (!open) setActive(null); }}>
-    <div className={`portfolio-window${selected ? " is-paused" : ""}`}>
+    <div className={`portfolio-window${selected ? " is-paused" : ""}`} onMouseMove={handleMouseMove} onMouseLeave={(event) => event.currentTarget.classList.remove("is-fast")}>
       <div className="portfolio-track">
         {[0, 1].map((copy) => <div className={`portfolio-strip${copy ? " portfolio-strip-copy" : ""}`} key={copy} aria-hidden={copy ? true : undefined}>
           {photos.map((photo, index) => <Button key={photo.src} variant="ghost" className="portfolio-photo" tabIndex={copy ? -1 : undefined} onClick={() => setActive(index)} aria-label={`Ampliar: ${photo.alt}`}>
