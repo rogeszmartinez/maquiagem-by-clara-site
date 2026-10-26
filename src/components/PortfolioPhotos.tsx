@@ -72,7 +72,7 @@ export function PortfolioPhotos() {
     const cur = ((offset.current % width) + width) % width;
     let next: number;
     if (dir === 1) next = starts.find((s) => s > cur + 2) ?? width;
-    else next = [...starts].reverse().find((s) => s < cur - 2) ?? starts[starts.length - 1] - width;
+    else next = [...starts].reverse().find((s) => s < cur - 2) ?? (starts[starts.length - 1] ?? 0) - width;
     offset.current = cur;
     target.current = next;
   };
