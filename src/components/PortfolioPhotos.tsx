@@ -2,26 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ChevronLeft, ChevronRight, Pause, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import photo01 from "@/assets/portfolio-01.jpg.asset.json";
-import photo02 from "@/assets/portfolio-02.jpg.asset.json";
-import photo03 from "@/assets/portfolio-03.jpg.asset.json";
-import photo04 from "@/assets/portfolio-04.jpg.asset.json";
-import photo05 from "@/assets/portfolio-05.jpg.asset.json";
-import photo06 from "@/assets/portfolio-06.jpg.asset.json";
-import photo07 from "@/assets/portfolio-07.jpg.asset.json";
-import photo08 from "@/assets/portfolio-08.jpg.asset.json";
-import photo09 from "@/assets/portfolio-09.jpg.asset.json";
+const photo01 = "/media/portfolio-01.jpg";
+const photo02 = "/media/portfolio-02.jpg";
+const photo03 = "/media/portfolio-03.jpg";
+const photo04 = "/media/portfolio-04.jpg";
+const photo05 = "/media/portfolio-05.jpg";
+const photo06 = "/media/portfolio-06.jpg";
+const photo07 = "/media/portfolio-07.jpg";
+const photo08 = "/media/portfolio-08.jpg";
+const photo09 = "/media/portfolio-09.jpg";
 
 const photos = [
-  { src: photo04.url, alt: "Maquiagem iluminada e cabelos cacheados soltos, produção com vestido amarelo", width: 1080, height: 1920 },
-  { src: photo06.url, alt: "Maquiagem com olhos marcados e cabelos cacheados, retrato com roupa preta", width: 1440, height: 1920 },
-  { src: photo05.url, alt: "Maquiagem com sombra cintilante e cabelos ondulados, produção com vestido vinho", width: 1080, height: 1920 },
-  { src: photo01.url, alt: "Maquiagem com olhos esfumados e cabelo preso, produção com vestido amarelo", width: 1413, height: 1920 },
-  { src: photo02.url, alt: "Maquiagem com delineado e coque com mechas soltas, produção com vestido vermelho", width: 1344, height: 1920 },
-  { src: photo03.url, alt: "Penteado em coque baixo com acabamento polido, visto de lado", width: 1440, height: 1920 },
-  { src: photo07.url, alt: "Maquiagem social iluminada com cabelo preso e brincos de pérola", width: 1280, height: 1920 },
-  { src: photo08.url, alt: "Penteado semipreso com ondas longas, visto de costas", width: 1080, height: 1920 },
-  { src: photo09.url, alt: "Rabo de cavalo alto com ondas e mechas trabalhadas, visto de costas", width: 1000, height: 1778 },
+  { src: photo04, alt: "Maquiagem iluminada e cabelos cacheados soltos, produção com vestido amarelo", width: 1080, height: 1920 },
+  { src: photo06, alt: "Maquiagem com olhos marcados e cabelos cacheados, retrato com roupa preta", width: 1440, height: 1920 },
+  { src: photo05, alt: "Maquiagem com sombra cintilante e cabelos ondulados, produção com vestido vinho", width: 1080, height: 1920 },
+  { src: photo01, alt: "Maquiagem com olhos esfumados e cabelo preso, produção com vestido amarelo", width: 1413, height: 1920 },
+  { src: photo02, alt: "Maquiagem com delineado e coque com mechas soltas, produção com vestido vermelho", width: 1344, height: 1920 },
+  { src: photo03, alt: "Penteado em coque baixo com acabamento polido, visto de lado", width: 1440, height: 1920 },
+  { src: photo07, alt: "Maquiagem social iluminada com cabelo preso e brincos de pérola", width: 1280, height: 1920 },
+  { src: photo08, alt: "Penteado semipreso com ondas longas, visto de costas", width: 1080, height: 1920 },
+  { src: photo09, alt: "Rabo de cavalo alto com ondas e mechas trabalhadas, visto de costas", width: 1000, height: 1778 },
 ];
 
 const BASE_SPEED = 28; // px/s

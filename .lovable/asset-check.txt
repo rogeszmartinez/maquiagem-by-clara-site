@@ -1,5 +1,10 @@
-Real images uploaded for the Maria Clara landing page:
-- maria-clara-retrato.png.asset.json
-- maria-clara-maquiando.png.asset.json
-- maria-clara-beauty.png.asset.json
-- maria-clara-editorial.jpg.asset.json
+Mídias reais do site Maria Clara, servidas localmente em public/media/:
+- maria-clara-retrato.jpg (hero)
+- maria-clara-maquiando.jpg (localização)
+- maria-clara-editorial.jpg (sobre)
+- maria-clara-beauty.jpg (reserva, sem uso atual)
+- clara-galvao-logo.png / clara-galvao-logo-light.png (header e footer)
+- clara-galvao-horizontal-white.webp / clara-galvao-vertical-white.webp (logo sobre o vídeo)
+- clara-galvao-hero.mp4 + clara-galvao-hero-poster.jpg (vídeo de abertura)
+- portfolio-01.jpg … portfolio-09.jpg (carrossel do portfólio)
+Referências no código usam caminhos /media/nome-do-arquivo.ext.
