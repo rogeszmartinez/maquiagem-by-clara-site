@@ -1,15 +1,16 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { ArrowRight, ChevronDown, Instagram, MapPin, Menu, X } from "lucide-react";
-import portraitAsset from "@/assets/maria-clara-retrato.png.asset.json";
-import applyingAsset from "@/assets/maria-clara-maquiando.png.asset.json";
 import { PortfolioPhotos } from "@/components/PortfolioPhotos";
-import editorialAsset from "@/assets/maria-clara-editorial.jpg.asset.json";
-import logoAsset from "@/assets/clara-galvao-logo.png.asset.json";
-import logoLightAsset from "@/assets/clara-galvao-logo-light.png.asset.json";
-import heroVideoAsset from "@/assets/clara-galvao-hero.mp4.asset.json";
-import logoHorizontalWhite from "@/assets/clara-galvao-horizontal-white.png.asset.json";
-import logoVerticalWhite from "@/assets/clara-galvao-vertical-white.png.asset.json";
-import heroPosterAsset from "@/assets/clara-galvao-hero-poster.jpg.asset.json";
+
+const portraitAsset = "/media/maria-clara-retrato.jpg";
+const applyingAsset = "/media/maria-clara-maquiando.jpg";
+const editorialAsset = "/media/maria-clara-editorial.jpg";
+const logoAsset = "/media/clara-galvao-logo.png";
+const logoLightAsset = "/media/clara-galvao-logo-light.png";
+const heroVideoAsset = "/media/clara-galvao-hero.mp4";
+const logoHorizontalWhite = "/media/clara-galvao-horizontal-white.webp";
+const logoVerticalWhite = "/media/clara-galvao-vertical-white.webp";
+const heroPosterAsset = "/media/clara-galvao-hero-poster.jpg";
 
 const SITE_CONFIG = {
   whatsappNumber: "",
