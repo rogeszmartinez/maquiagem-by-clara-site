@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { ChevronLeft, ChevronRight, Pause, Play, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const photo01 = "/media/portfolio-01.jpg";
 const photo02 = "/media/portfolio-02.jpg";
@@ -29,20 +29,18 @@ const FAST_SPEED = 110;
 
 export function PortfolioPhotos() {
   const [active, setActive] = useState<number | null>(null);
-  const [playing, setPlaying] = useState(true);
-  const [progress, setProgress] = useState(0);
   const selected = active === null ? undefined : photos[active];
   const trackRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
   const offset = useRef(0);
   const target = useRef<number | null>(null);
   const mode = useRef<"normal" | "fast" | "paused">("normal");
-  const state = useRef({ playing: true, open: false });
-  state.current = { playing, open: selected !== undefined };
+  const state = useRef({ open: false });
+  state.current = { open: selected !== undefined };
 
   useEffect(() => {
     if (window.matchMedia("(max-width: 900px), (prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0; let last = performance.now(); let lastP = -1;
+    let raf = 0; let last = performance.now();
     const tick = (now: number) => {
       const dt = Math.min((now - last) / 1000, 0.05); last = now;
       const width = stripRef.current?.offsetWidth ?? 0;
@@ -51,13 +49,11 @@ export function PortfolioPhotos() {
           const diff = target.current - offset.current;
           if (Math.abs(diff) < 0.5) { offset.current = target.current; target.current = null; }
           else offset.current += diff * Math.min(1, dt * 7);
-        } else if (state.current.playing && !state.current.open && mode.current !== "paused") {
+        } else if (!state.current.open && mode.current !== "paused") {
           offset.current += (mode.current === "fast" ? FAST_SPEED : BASE_SPEED) * dt;
         }
         if (target.current === null) offset.current = ((offset.current % width) + width) % width;
         if (trackRef.current) trackRef.current.style.transform = `translate3d(${-offset.current}px,0,0)`;
-        const p = Math.round((((offset.current % width) + width) % width) / width * 1000) / 10;
-        if (p !== lastP) { lastP = p; setProgress(p); }
       }
       raf = requestAnimationFrame(tick);
     };
@@ -77,14 +73,10 @@ export function PortfolioPhotos() {
     target.current = next;
   };
 
-  const seek = (value: number) => {
-    const width = stripRef.current?.offsetWidth ?? 0;
-    target.current = null;
-    offset.current = (value / 100) * width;
-  };
-
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if ((event.target as HTMLElement).closest(".portfolio-photo")) {
+    const el = event.target as HTMLElement;
+    if (el.closest(".portfolio-control")) { mode.current = "paused"; return; }
+    if (el.closest(".portfolio-photo")) {
       const rect = event.currentTarget.getBoundingClientRect();
       const edge = Math.min(rect.width * 0.12, 140);
       const x = event.clientX - rect.left;
@@ -103,12 +95,10 @@ export function PortfolioPhotos() {
           </Button>)}
         </div>)}
       </div>
-    </div>
-    <div className="portfolio-controls" role="group" aria-label="Controles da galeria">
-      <Button variant="ghost" size="icon" className="portfolio-control" onClick={() => step(-1)} aria-label="Foto anterior"><ChevronLeft aria-hidden="true" /></Button>
-      <Button variant="ghost" size="icon" className="portfolio-control" onClick={() => setPlaying(!playing)} aria-label={playing ? "Pausar galeria" : "Reproduzir galeria"}>{playing ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}</Button>
-      <Button variant="ghost" size="icon" className="portfolio-control" onClick={() => step(1)} aria-label="Próxima foto"><ChevronRight aria-hidden="true" /></Button>
-      <input className="portfolio-range" type="range" min={0} max={100} step={0.1} value={progress} onChange={(e) => seek(Number(e.target.value))} aria-label="Posição da galeria" style={{ "--p": `${progress}%` } as React.CSSProperties} />
+      <div className="portfolio-controls" role="group" aria-label="Controles da galeria">
+        <Button variant="ghost" size="icon" className="portfolio-control" onClick={() => step(-1)} aria-label="Foto anterior"><ChevronLeft aria-hidden="true" /></Button>
+        <Button variant="ghost" size="icon" className="portfolio-control" onClick={() => step(1)} aria-label="Próxima foto"><ChevronRight aria-hidden="true" /></Button>
+      </div>
     </div>
     <Dialog.Portal>
       <Dialog.Overlay className="portfolio-lightbox-overlay" />

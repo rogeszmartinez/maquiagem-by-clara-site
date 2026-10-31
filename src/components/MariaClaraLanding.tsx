@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowRight, ChevronDown, Instagram, MapPin, Menu, X } from "lucide-react";
+import { ArrowRight, Camera, ChevronDown, Gem, GraduationCap, Instagram, MapPin, Menu, Palette, X } from "lucide-react";
 import { PortfolioPhotos } from "@/components/PortfolioPhotos";
 
 const portraitAsset = "/media/maria-clara-retrato.jpg";
@@ -63,7 +63,7 @@ export function Hero() {
 }
 
 function Experience() {
-  return <section className="experience section-pad reveal"><p className="eyebrow">A experiência Clara Galvão</p><div className="statement"><h2>Beleza, qualidade<br/>e <em>excelência.</em></h2><p>Um atendimento personalizado para valorizar sua beleza e transformar a preparação para o seu evento em uma experiência especial.</p></div><div className="values">{["Atendimento personalizado","Produtos de alta qualidade","Longa duração"].map(v=><div key={v}><p>{v}</p></div>)}</div></section>;
+  return <section className="experience section-pad reveal"><p className="eyebrow">A experiência Clara Galvão</p><div className="statement"><h2>Beleza, qualidade<br/>e <em>excelência.</em></h2><p>Um atendimento personalizado para valorizar sua beleza e transformar a preparação para o seu evento em uma experiência especial.</p></div><div className="values">{["Atendimento personalizado","Produtos de alta qualidade","Longa duração"].map(v=><button type="button" key={v} className="button-primary">{v}</button>)}</div></section>;
 }
 
 const services = [
@@ -79,11 +79,11 @@ export function ServiceCard({ service }: { service: typeof services[number] }) {
 
 function Services() {
  return <section id="servicos" className="services section-pad"><SectionHeading eyebrow="Serviços" title="Produções pensadas para cada ocasião." intro="Do acabamento natural à produção completa, cada escolha respeita seu estilo e o momento que você vai viver."/><div className="service-list">{services.map(s=><ServiceCard key={s.title} service={s}/>)}</div><p className="service-footnote">Consulte valores para parcelamento no crédito. Em atendimentos a domicílio, o valor final é calculado de acordo com o endereço.</p><div className="other-services"><SectionHeading eyebrow="Além da maquiagem social" title="Outros serviços"/><div className="other-grid">{[
-  ["Beauty & Fotos","Ensaio de posicionamento ou aniversário no studio, com iPhone 15 Pro Max, fotos profissionais editadas e fundo infinito preto ou branco.","Solicitar valores"],
-  ["Curso de Automaquiagem","Individual ou em grupo, com materiais inclusos, técnicas para o dia a dia, certificado, brinde e apostila. Disponível em Salvador e Lauro de Freitas.","Solicitar valores"],
-  ["Maquiagem Artística","Maquiagem artística para fantasias e produções especiais.","Consultar disponibilidade"],
-  ["Maquiagem para Noivas","Pacotes para o seu dia de noiva ser inesquecível.","Solicitar valores"]
-].map(([title,text,cta])=><article key={title} className="other-card reveal"><h3>{title}</h3><p>{text}</p><WhatsAppLink className="text-link">{cta}</WhatsAppLink></article>)}</div><p className="occasions">Atendimentos para <b>noivas</b>, formandas, madrinhas, aniversários de 15 anos, ensaios fotográficos e eventos especiais.</p></div></section>
+  { title:"Beauty & Fotos", text:"Ensaio de posicionamento ou aniversário no studio, com iPhone 15 Pro Max, fotos profissionais editadas e fundo infinito preto ou branco.", cta:"Solicitar valores", icon:Camera },
+  { title:"Curso de Automaquiagem", text:"Individual ou em grupo, com materiais inclusos, técnicas para o dia a dia, certificado, brinde e apostila. Disponível em Salvador e Lauro de Freitas.", cta:"Solicitar valores", icon:GraduationCap },
+  { title:"Maquiagem Artística", text:"Maquiagem artística para fantasias e produções especiais.", cta:"Consultar disponibilidade", icon:Palette },
+  { title:"Maquiagem para Noivas", text:"Pacotes para o seu dia de noiva ser inesquecível.", cta:"Solicitar valores", icon:Gem }
+].map(({title,text,cta,icon:Icon},i)=><article key={title} className={`other-card reveal${i % 2 ? " other-card-dark" : ""}`}><Icon className="other-icon" size={26} aria-hidden="true"/><h3>{title}</h3><p>{text}</p><WhatsAppLink className="text-link">{cta}</WhatsAppLink></article>)}</div><p className="occasions">Atendimentos para <b>noivas</b>, formandas, madrinhas, aniversários de 15 anos, ensaios fotográficos e eventos especiais.</p></div></section>
 }
 
 
