@@ -28,7 +28,6 @@ export const Route = createFileRoute("/")({
         },
         areaServed: ["Lauro de Freitas", "Salvador", "Abrantes", "Linha Verde"],
         sameAs: ["https://www.instagram.com/maquiagembyclara/"],
-        priceRange: "R$ 230–430",
       }),
     }],
   }),
