@@ -67,27 +67,25 @@ function Experience() {
 }
 
 const services = [
-  { title:"Maquiagem Social", price:"A partir de R$ 230,00", note:"por cliente", text:"Maquiagem completa, à prova d’água e de longa duração, realizada com produtos de alta qualidade. Esfumado completo, delineado, cílios postiços e tudo o que você desejar para sua produção.", featured:true },
-  { title:"Social + Escova e Babyliss", price:"R$ 380,00", note:"por cliente", text:"Produção de maquiagem social completa combinada com escova e babyliss." },
-  { title:"Social + Penteado", price:"R$ 430,00", note:"por cliente", text:"Produção completa combinando maquiagem social e penteado." },
+  { title:"Maquiagem Social", text:"Maquiagem completa, à prova d’água e de longa duração, realizada com produtos de alta qualidade. Esfumado completo, delineado, cílios postiços e tudo o que você desejar para sua produção.", featured:true },
+  { title:"Social + Escova e Babyliss", text:"Produção de maquiagem social completa combinada com escova e babyliss." },
+  { title:"Social + Penteado", text:"Produção completa combinando maquiagem social e penteado." },
+  { title:"Penteado", text:"Para todos os tipos de cabelos." },
 ];
 
 export function ServiceCard({ service }: { service: typeof services[number] }) {
- return <article className={`service-card reveal ${service.featured ? "featured" : ""}`}><div><h3>{service.title}</h3><p>{service.text}</p>{service.featured && <ul><li>Pagamento via PIX ou cartão</li></ul>}</div><div className="service-price"><strong>{service.price}</strong><span>{service.note}</span></div></article>
+ return <article className={`service-card reveal ${service.featured ? "featured" : ""}`}><h3>{service.title}</h3><p>{service.text}</p>{service.featured && <ul><li>Pagamento via PIX ou cartão</li></ul>}</article>
 }
 
 function Services() {
  return <section id="servicos" className="services section-pad"><SectionHeading eyebrow="Serviços" title="Produções pensadas para cada ocasião." intro="Do acabamento natural à produção completa, cada escolha respeita seu estilo e o momento que você vai viver."/><div className="service-list">{services.map(s=><ServiceCard key={s.title} service={s}/>)}</div><p className="service-footnote">Consulte valores para parcelamento no crédito. Em atendimentos a domicílio, o valor final é calculado de acordo com o endereço.</p><div className="other-services"><SectionHeading eyebrow="Além da maquiagem social" title="Outros serviços"/><div className="other-grid">{[
   ["Beauty & Fotos","Ensaio de posicionamento ou aniversário no studio, com iPhone 15 Pro Max, fotos profissionais editadas e fundo infinito preto ou branco.","Solicitar valores"],
   ["Curso de Automaquiagem","Individual ou em grupo, com materiais inclusos, técnicas para o dia a dia, certificado, brinde e apostila. Disponível em Salvador e Lauro de Freitas.","Solicitar valores"],
-  ["Maquiagem Artística","Maquiagem artística para fantasias e produções especiais.","Consultar disponibilidade"]
+  ["Maquiagem Artística","Maquiagem artística para fantasias e produções especiais.","Consultar disponibilidade"],
+  ["Maquiagem para Noivas","Pacotes para o seu dia de noiva ser inesquecível.","Solicitar valores"]
 ].map(([title,text,cta])=><article key={title} className="other-card reveal"><h3>{title}</h3><p>{text}</p><WhatsAppLink className="text-link">{cta}</WhatsAppLink></article>)}</div><p className="occasions">Atendimentos para <b>noivas</b>, formandas, madrinhas, aniversários de 15 anos, ensaios fotográficos e eventos especiais.</p></div></section>
 }
 
-function Extras() {
- const rows = [["Camuflagem de sobrancelhas com micropigmentação","R$ 50,00"],["Camuflagem de cicatriz — pequena","R$ 30,00"],["Camuflagem de cicatriz — média","R$ 50,00"],["Camuflagem de cicatriz — grande","R$ 70,00"],["Camuflagem de hematomas/manchas pós-cirúrgicas","Valor conforme o tamanho"]];
- return <section className="extras section-pad"><SectionHeading eyebrow="Complementos" title="Extras" intro="Recursos de acabamento para necessidades específicas, realizados com cuidado e precisão."/><div className="price-table reveal">{rows.map(([name,price])=><div key={name}><span>{name}</span><strong>{price}</strong></div>)}</div></section>
-}
 
 export function PortfolioGallery() {
  return <section id="portfolio" className="portfolio section-pad"><SectionHeading eyebrow="Portfólio" title="Beleza que se revela nos detalhes." intro="Conheça algumas das produções realizadas por Clara."/><PortfolioPhotos/><a className="instagram-link" href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer"><Instagram size={18}/><span>Ver Instagram</span><small>{SITE_CONFIG.instagramHandle}</small><ArrowRight size={18}/></a></section>
@@ -103,7 +101,7 @@ function WhyClara() {
 }
 
 export function LocationSection() {
- return <section id="localizacao" className="location section-pad"><SectionHeading eyebrow="Atendimento" title="Onde você pode ser atendida"/><div className="location-layout"><div className="location-photo reveal"><img src={applyingAsset} alt="Maria Clara durante preparação de maquiagem profissional" loading="lazy"/></div><div className="location-info reveal"><article><div><h3>Studio</h3><p><strong>Buraquinho — Lauro de Freitas, Bahia</strong></p><small>Endereço completo após o agendamento.</small></div></article><article><div><h3>Atendimento a domicílio</h3><p>Lauro de Freitas, Stella Maris e Abrantes — <strong>R$ 30,00</strong></p><p>Demais regiões — consulte o valor</p><p>Após o pedágio e Linha Verde — <strong>a partir de R$ 100,00</strong> de deslocamento</p><small>O valor final depende do endereço exato.</small></div></article><WhatsAppLink>Consultar disponibilidade</WhatsAppLink></div></div></section>
+ return <section id="localizacao" className="location section-pad"><SectionHeading eyebrow="Atendimento" title="Onde você pode ser atendida"/><div className="location-layout"><div className="location-photo reveal"><img src={applyingAsset} alt="Maria Clara durante preparação de maquiagem profissional" loading="lazy"/></div><div className="location-info reveal"><article><div><h3>Studio</h3><p><strong>Buraquinho — Lauro de Freitas, Bahia</strong></p><small>Endereço completo após o agendamento.</small></div></article><article><div><h3>Atendimento a domicílio</h3><p><strong>Lauro de Freitas, Stella Maris e Abrantes</strong></p><p>Demais regiões — consulte a disponibilidade</p><p>Após o pedágio e Linha Verde</p><small>O valor final depende do endereço exato.</small></div></article><WhatsAppLink>Consultar disponibilidade</WhatsAppLink></div></div></section>
 }
 
 export function BookingPolicies() {
@@ -119,4 +117,4 @@ export function Footer() {
  return <footer><a className="wordmark footer-mark" href="#inicio" aria-label="Maria Clara Galvão — início"><img className="brand-logo brand-logo-light" src={logoLightAsset} alt="Clara Galvão — Make & hair"/></a><div className="footer-links"><a href={SITE_CONFIG.instagramUrl} target="_blank" rel="noreferrer">{SITE_CONFIG.instagramHandle}</a><a href={whatsappHref("Olá, Clara! Gostaria de agendar um atendimento.")}>Agendamento</a></div><p className="footer-address">Studio — Buraquinho, Lauro de Freitas • Bahia</p><p className="footer-copy">© 2026 Maria Clara Galvão. Todos os direitos reservados.</p></footer>
 }
 
-export default function MariaClaraLanding(){ return <><Header/><main><VideoIntro/><Hero/><Experience/><PortfolioGallery/><Services/><Extras/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
+export default function MariaClaraLanding(){ return <><Header/><main><VideoIntro/><Hero/><Experience/><PortfolioGallery/><Services/><AboutSection/><WhyClara/><LocationSection/><BookingPolicies/><CTASection/></main><Footer/></> }
